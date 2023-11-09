@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Instagram App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Instagram Chat</title>
 </head>
 <body>
 
-    <button onclick="openInstagramApp()">Open Instagram App</button>
+  <button onclick="openInstagramChat()">Open Instagram Chat</button>
 
-    <script>
-        function openInstagramApp() {
-            // Check if the Instagram app is installed, if not, open the Instagram website
-            var url = 'https://www.instagram.com/direct/t/17848192751987654/'; // Replace 'USERNAME' with the desired Instagram username
+  <script>
+    function openInstagramChat() {
+      // Replace 'https://www.instagram.com/direct/t/17848192751987654/' with the desired chat URL
+      var chatUrl = 'https://www.instagram.com/direct/t/17848192751987654/';
 
-            // Create an invisible iframe to try opening the Instagram app
-            var iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = url;
-            document.body.appendChild(iframe);
+      // Try to open the Instagram app
+      var url = 'intent://direct/t/' + chatUrl + '#Intent;package=com.instagram.android;scheme=https;end';
+      window.open(url);
 
-            // Redirect to the Instagram website if the app is not opened in a few seconds
-            setTimeout(function () {
-                window.location.href = 'https://www.instagram.com/direct/t/17848192751987654/'; // Replace 'USERNAME' with the desired Instagram username
-            }, 2000);
-        }
-    </script>
+      // Redirect to the Instagram website if the app is not opened in a few seconds
+      var timeout = setTimeout(function() {
+        window.location.href = 'https://www.instagram.com/direct/t/17848192751987654/';
+      }, 2000);
+    }
+  </script>
 
 </body>
 </html>
