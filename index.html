@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Instagram App</title>
+</head>
+<body>
+
+    <button onclick="openInstagramApp()">Open Instagram App</button>
+
+    <script>
+        function openInstagramApp() {
+            // Check if the Instagram app is installed, if not, open the Instagram website
+            var url = 'https://www.instagram.com/direct/t/17848192751987654/'; // Replace 'USERNAME' with the desired Instagram username
+
+            // Create an invisible iframe to try opening the Instagram app
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = url;
+            document.body.appendChild(iframe);
+
+            // Redirect to the Instagram website if the app is not opened in a few seconds
+            setTimeout(function () {
+                window.location.href = 'https://www.instagram.com/direct/t/17848192751987654/'; // Replace 'USERNAME' with the desired Instagram username
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
